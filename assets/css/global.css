@@ -1,7 +1,52 @@
 @charset "UTF-8";
 /* 전역스타일 */
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("../fonts/NotoSansKR-Regular.woff2") format("woff2"), url("../fonts/NotoSansKR-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("../fonts/NotoSansKR-Medium.woff2") format("woff2"), url("../fonts/NotoSansKR-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans KR";
+  src: url("../fonts/NotoSansKR-Bold.woff2") format("woff2"), url("../fonts/NotoSansKR-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+html {
+  font-size: 10px;
+}
+
+:root {
+  --color-primary: #3498db;
+  --color-secondary: #2ecc71;
+  --color-accent: #e74c3c;
+  --color-background: #f5f5f5;
+  --color-text: #333333;
+  --font-family: 'Noto Sans KR', sans-serif;
+  --font-size: 1.6rem;
+  --line-height: 1.5;
+}
+
+/* =========================
+   1) Typography Mixin
+   ========================= */
 body {
-  background: linen;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: 400;
+  --line-height: 1.5;
+  color: var(--color-text);
 }
 
 /*# sourceMappingURL=global.css.map */

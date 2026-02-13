@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch assets/scss:assets/css"
+    "dev": "npm-run-all --parallel sass:watch serve",
+    "sass:watch": "sass --watch assets/scss:assets/css",
+    "serve": "live-server"
   },
   "repository": {
-    "type": "git"
   },
   "keywords": [],
   "author": "",
