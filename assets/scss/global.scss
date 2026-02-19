@@ -31,6 +31,9 @@ html{font-size:10px;}
 $font-size: 1.6rem;
 
 :root {
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+
     --color-primary: #3498db;
     --color-secondary: #2ecc71;
     --color-accent: #e74c3c;
@@ -59,10 +62,54 @@ $font-size: 1.6rem;
   --line-height: #{line-height-by-size($font-size)};
 }
 
+/* =========================
+   Layout
+   ========================= */
+
+html, body { height: 100%; }
 body {
     margin: 0;
     padding: 0;
     font-family: var(--font-family);
-    @include font-setting(var(--font-size), 400);
+    @include font-setting(var(--font-size));
     color: var(--color-text);
 }
+
+.app{
+  min-height: 100dvh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+
+/* header는 위에 */
+.app-header{
+  flex: 0 0 auto;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* main은 흐름(스크롤은 body) */
+.app-main{
+  flex: 1 1 auto;
+  /* overflow 주지 않음! (중요) */
+}
+
+/* footer는 sticky로 “항상 바닥”에 붙게 */
+.app-footer{
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  padding-bottom: var(--safe-bottom);
+}
+
+/* 키보드 오픈 시 숨김(클래스 토글용) */
+body.is-keyboard-open .app-footer{
+  display: none;
+}
+
+/* iOS 확대 방지 */
+input, textarea, select { font-size: 1.6rem; }
